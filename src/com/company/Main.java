@@ -5,13 +5,24 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        int result = 2*2;
+        int x;
+        int y;
+
+
 
         System.out.println("Hi! What's your name:");
-
-        Scanner input = new Scanner(System.in);
         String name = input.nextLine();
+
+        System.out.println("type numbers");
+
+        x=input.nextInt();
+        y=input.nextInt();
+
+
+        int result = x+y;
+
 
 
         System.out.println(name + ", your result is : " +result );
