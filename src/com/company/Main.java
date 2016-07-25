@@ -19,7 +19,7 @@ public class Main {
         y = input.nextInt();
 
 
-        System.out.println("add or subtract?");
+        System.out.println("add, subtract, multiple or divide?");
         input.nextLine();
         String addorsubt = input.nextLine();
 
@@ -37,6 +37,15 @@ public class Main {
             result = x - y;
         }
 
+        if (addorsubt.equals("multiple")) {
+            System.out.println();
+            result = x * y;
+        }
+
+        if (addorsubt.equals("divide")) {
+            System.out.println();
+            result = x/y;
+        }
 
         System.out.println(name + ", your result is : " + result);
     }
