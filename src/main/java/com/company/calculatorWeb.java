@@ -17,7 +17,16 @@ public class calculatorWeb {
 
         Spark.get("/calculator",
                 (request, response) -> {
-            return "<html><b>hey</b> buddy</html>";
+                    String number1 = request.queryParams("number1");
+                    String number2 = request.queryParams("number2");
+
+
+            return "<html><b>hey</b> buddy! Your numbers:
+                    +number1
+                    +", "
+                    +number2
+                    +"</html>";
+                    ;
         });
 
         Spark.get("/contact", ((request, response) -> {
@@ -25,7 +34,7 @@ public class calculatorWeb {
                     "<form action=\"/calculator\">" +
                     "<input name=\"number1\">" +
                     "<input name=\"number2\">" +
-                    "<input name=\"submit\">" +
+                    "<input type=\"submit\">" +
                     "</form></html>";
         }));
 
