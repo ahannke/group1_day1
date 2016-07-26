@@ -20,13 +20,20 @@ public class calculatorWeb {
                     String number1 = request.queryParams("number1");
                     String number2 = request.queryParams("number2");
 
+                    int number1a = Integer.parseInt(number1);
+                    int number2a = Integer.parseInt(number2);
 
-            return "<html><b>hey</b> buddy! Your numbers:
+                    int result = number1a + number2a;
+
+
+            return "<html><b>hey</b> buddy! Your numbers:"
                     +number1
                     +", "
                     +number2
+                    +" and your result is...... "
+                    + result
                     +"</html>";
-                    ;
+
         });
 
         Spark.get("/contact", ((request, response) -> {
