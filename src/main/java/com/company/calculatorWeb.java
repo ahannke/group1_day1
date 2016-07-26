@@ -1,7 +1,12 @@
 package com.company;
 
+import spark.ModelAndView;
 import spark.Spark;
+import spark.template.freemarker.FreeMarkerEngine;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.function.BiFunction;
 
 public class calculatorWeb {
@@ -10,7 +15,7 @@ public class calculatorWeb {
     public static void main(String [] args) {
 
         String port = System.getenv("PORT");
-        if (port !=null){
+        if (port != null) {
             int portInt = Integer.parseInt(port);
             Spark.port(portInt);
         }
@@ -25,16 +30,13 @@ public class calculatorWeb {
 
                     int result = number1a + number2a;
 
+                    Map<String, Object> model = new HashMap();
+                    model.put("result", result);
+                    model.put("number1", number1);
+                    model.put("number2", number2);
 
-            return "<html><b>hey</b> buddy! Your numbers:"
-                    +number1
-                    +", "
-                    +number2
-                    +" and your result is...... "
-                    + result
-                    +"</html>";
-
-        });
+                    return new ModelAndView(model, "result.ftl");
+                }, new FreeMarkerEngine());
 
         Spark.get("/contact", ((request, response) -> {
             return "<html>" +
@@ -47,7 +49,3 @@ public class calculatorWeb {
 
     }
 }
-
-
-
-
