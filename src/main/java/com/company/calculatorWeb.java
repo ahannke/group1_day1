@@ -47,5 +47,26 @@ public class calculatorWeb {
                     "</form></html>";
         }));
 
+        Spark.get("/participant", (request, response) -> {
+                    String name = request.queryParams("name");
+                    String surname = request.queryParams("surname");
+
+                    Map<String, Object> model = new HashMap();
+                    model.put("name", name);
+                    model.put("surname", surname);
+
+                    return new ModelAndView(model, "participant.ftl");
+                }, new FreeMarkerEngine());
+
+
+        Spark.get("/user_query", ((request, response) -> {
+            return "<html>" +
+                    "<form action=\"/participant\">" +
+                    "<input name=\"name\">" +
+                    "<input name=\"surname\">" +
+                    "<input type=\"submit\">" +
+                    "</form></html>";
+        }));
+
     }
 }
