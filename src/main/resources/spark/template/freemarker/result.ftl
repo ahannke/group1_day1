@@ -1,1 +1,1 @@
-<html><b>hey</b> buddy! Your numbers: ${number1}, ${number2} and your result is......  ${result} ${atrybut1}</html>
+<html><b>hey</b> buddy! your result is......  ${result} ${atrybut1}</html>

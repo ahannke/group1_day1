@@ -34,8 +34,8 @@ public class CalculatorWeb {
 
                     Map<String, Object> model = new HashMap();
                     model.put("result", result);
-                    model.put("number1", number1);
-                    model.put("number2", number2);
+//                    model.put("number1", number1);
+//                    model.put("number2", number2);
                     model.put("atrybut1", "tralala");
 
                     return new ModelAndView(model, "result.ftl");
