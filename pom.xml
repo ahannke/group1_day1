@@ -35,7 +35,7 @@
                     <appendAssemblyId>false</appendAssemblyId>
                     <archive>
                         <manifest>
-                            <mainClass>com.company.calculatorWeb</mainClass>
+                            <mainClass>com.company.CalculatorWeb</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

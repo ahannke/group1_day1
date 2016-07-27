@@ -9,10 +9,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-public class calculatorWeb {
+public class CalculatorWeb {
 
 
     public static void main(String [] args) {
+
+        Spark.staticFileLocation("/elo");
 
         String port = System.getenv("PORT");
         if (port != null) {
@@ -34,22 +36,23 @@ public class calculatorWeb {
                     model.put("result", result);
                     model.put("number1", number1);
                     model.put("number2", number2);
+                    model.put("atrybut1", "tralala");
 
                     return new ModelAndView(model, "result.ftl");
                 }, new FreeMarkerEngine());
 
-        Spark.get("/contact", ((request, response) -> {
-            return "<html>" +
-                    "<form action=\"/calculator\">" +
-                    "<input name=\"number1\">" +
-                    "<input name=\"number2\">" +
-                    "<input type=\"submit\">" +
-                    "</form></html>";
-        }));
+//        Spark.get("/contact", ((request, response) -> {
+//            return "<html>" +
+//                    "<form action=\"/calculator\">" +
+//                    "<input name=\"number1\">" +
+//                    "<input name=\"number2\">" +
+//                    "<input type=\"submit\">" +
+//                    "</form></html>";
+//        }));
 
         Spark.get("/participant", (request, response) -> {
-                    String name = request.queryParams("name");
-                    String surname = request.queryParams("surname");
+            String name = request.queryParams("name");
+            String surname = request.queryParams("surname");
 
                     Map<String, Object> model = new HashMap();
                     model.put("name", name);
@@ -59,14 +62,14 @@ public class calculatorWeb {
                 }, new FreeMarkerEngine());
 
 
-        Spark.get("/user_query", ((request, response) -> {
+        Spark.get("/user_query", (request, response) -> {
             return "<html>" +
                     "<form action=\"/participant\">" +
                     "<input name=\"name\">" +
                     "<input name=\"surname\">" +
                     "<input type=\"submit\">" +
                     "</form></html>";
-        }));
+        });
+        }
 
-    }
 }
