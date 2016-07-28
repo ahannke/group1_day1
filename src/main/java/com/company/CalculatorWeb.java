@@ -4,6 +4,7 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
 
+import com.company.add.Calculator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -21,6 +22,7 @@ public class CalculatorWeb {
             int portInt = Integer.parseInt(port);
             Spark.port(portInt);
         }
+//        Spark.port(80);
 
         Spark.get("/calculator",
                 (request, response) -> {
@@ -30,7 +32,7 @@ public class CalculatorWeb {
                     int number1a = Integer.parseInt(number1);
                     int number2a = Integer.parseInt(number2);
 
-                    int result = number1a + number2a;
+                    int result=Calculator.add(number1a, number2a);
 
                     Map<String, Object> model = new HashMap();
                     model.put("result", result);
