@@ -28,11 +28,18 @@ public class CalculatorWeb {
                 (request, response) -> {
                     String number1 = request.queryParams("number1");
                     String number2 = request.queryParams("number2");
+                    String operation = request.queryParams("operation");
 
+                    int result;
                     int number1a = Integer.parseInt(number1);
                     int number2a = Integer.parseInt(number2);
 
-                    int result=Calculator.add(number1a, number2a);
+                    if(operation.equals("+")){
+                        result = Calculator.add(number1a, number2a);
+                    } else {
+                        result = Calculator.subtract(number1a,number2a);
+                    }
+
 
                     Map<String, Object> model = new HashMap();
                     model.put("result", result);
