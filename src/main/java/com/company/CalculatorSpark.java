@@ -4,18 +4,15 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.template.freemarker.FreeMarkerEngine;
 
-import com.company.add.Calculator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.function.BiFunction;
 
-public class CalculatorWeb {
+public class CalculatorSpark {
 
 
-    public static void main(String [] args) {
+    public static void runOnSpark(String [] args) {
 
-        Spark.staticFileLocation("/elo");
+        Spark.staticFileLocation("/templates");
 
         String port = System.getenv("PORT");
         if (port != null) {

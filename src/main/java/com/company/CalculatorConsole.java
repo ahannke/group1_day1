@@ -2,9 +2,9 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class CalculatorConsole {
 
-    public static void main(String[] args) {
+    public static void runOnConsole(String[] args) {
         Scanner input = new Scanner(System.in);
 
         int x;

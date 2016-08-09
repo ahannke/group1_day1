@@ -1,4 +1,4 @@
-package com.company.add;
+package com.company;
 
 public class Calculator {
 
