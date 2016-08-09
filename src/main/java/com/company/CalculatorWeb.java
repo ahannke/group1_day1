@@ -50,14 +50,6 @@ public class CalculatorWeb {
                     return new ModelAndView(model, "result.ftl");
                 }, new FreeMarkerEngine());
 
-//        Spark.get("/contact", ((request, response) -> {
-//            return "<html>" +
-//                    "<form action=\"/calculator\">" +
-//                    "<input name=\"number1\">" +
-//                    "<input name=\"number2\">" +
-//                    "<input type=\"submit\">" +
-//                    "</form></html>";
-//        }));
 
         Spark.get("/participant", (request, response) -> {
             String name = request.queryParams("name");
